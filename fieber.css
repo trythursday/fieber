@@ -26,7 +26,7 @@
   --c-yellow: #fe9;
   --c-fg: #202020;
   --c-bg: #fcfcfc;
-  --c-tag-bg: #e4e4e4;
+  --c-tag-bg: #dbdbdb;
 
   --i-triangle: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"%3E%3Cpolygon fill="black" points="5 10 10 0 0 0"/%3E%3C/svg%3E');
 
@@ -42,7 +42,7 @@
     --c-yellow: #ff9;
     --c-fg: #f5f4f0;
     --c-bg: #101010;
-    --c-tag-bg: #444444;
+    --c-tag-bg: #323232;
 
     --i-triangle: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"%3E%3Cpolygon fill="white" points="5 10 10 0 0 0"/%3E%3C/svg%3E');
   }
@@ -381,10 +381,13 @@ hr {
 */
 
 blockquote {
-  font-size: var(--f-size-large);
+  font-size: inherit;
   font-style: italic;
-  line-height: calc(var(--f-line) / 1.25);
+  line-height: inherit;
   margin: 0;
+  border-inline-start: 4px solid var(--c-gray);
+  background-color: var(--c-tag-bg);
+  padding: 1rem 1.5rem;
 }
 
 blockquote > *:first-child {
