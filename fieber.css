@@ -202,6 +202,24 @@ figure {
   break-inside: avoid;
 }
 
+figure img {
+  margin-inline: auto;
+}
+
+@media (min-aspect-ratio: 1/1) {
+  figure img {
+    max-height: 90vh;
+    width: auto;
+  }
+}
+
+@media (max-aspect-ratio: 1/1) {
+  figure img {
+    max-width: 90%;
+    height: auto;
+  }
+}
+
 /* Image */
 
 img {
@@ -417,6 +435,11 @@ blockquote > *:last-child {
   font-size: var(--f-size-small);
   font-style: italic;
   margin-block-start: 0.5rem;
+}
+
+figcaption {
+  font-size: 1.6rem;
+  text-align: center;
 }
 
 caption {
@@ -1003,7 +1026,7 @@ dialog > footer {
 
   body > footer {
     margin-block-start: 4rem;
-    font-size: 1.4rem;
+    font-size: var(--f-size);
   }
 
   footer p {
@@ -1028,9 +1051,9 @@ a.muted {
 
 .tag-row {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   max-width: 100%;
-  overflow-x: auto;
 }
 
 .tag {
@@ -1042,6 +1065,52 @@ a.muted {
 
 .tag::before {
   content: "#";
+}
+
+a.tag {
+  text-decoration: none;
+}
+
+a.tag:focus:not(:focus-visible) {
+  outline: none;
+}
+
+a.tag:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 2px;
+}
+
+.surface {
+  background-color: var(--c-surface);
+  border-radius: 0.5rem;
+  padding: 2rem;
+}
+
+.surface > :first-child,
+.content > :first-child {
+  margin-block-start: 0;
+}
+
+.surface > :last-child,
+.content > :last-child {
+  margin-block-end: 0;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.table-wrapper table {
+  display: table;
+  table-layout: fixed;
+  width: auto;
+  margin-inline: auto;
+}
+
+.table-wrapper :where(th, td) {
+  width: 20ch;
+  overflow-wrap: anywhere;
 }
 
 .outlined {
