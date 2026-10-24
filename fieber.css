@@ -27,6 +27,10 @@
   --c-fg: #202020;
   --c-bg: #fcfcfc;
   --c-tag-bg: #dbdbdb;
+  --c-accent: #0b57d0;
+  --c-on-accent: #ffffff;
+  --c-surface: #efefef;
+  --c-mark-fg: #202020;
 
   --i-triangle: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"%3E%3Cpolygon fill="black" points="5 10 10 0 0 0"/%3E%3C/svg%3E');
 
@@ -43,6 +47,10 @@
     --c-fg: #f5f4f0;
     --c-bg: #101010;
     --c-tag-bg: #323232;
+    --c-accent: #8ab4f8;
+    --c-on-accent: #101010;
+    --c-surface: #1e1e1e;
+    --c-mark-fg: #101010;
 
     --i-triangle: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"%3E%3Cpolygon fill="white" points="5 10 10 0 0 0"/%3E%3C/svg%3E');
   }
@@ -70,13 +78,13 @@
 /* Interaction */
 
 ::selection {
-  background: Highlight;
-  color: HighlightText;
+  background: var(--c-accent);
+  color: var(--c-on-accent);
   text-shadow: none;
 }
 
 *:focus {
-  outline: 2px solid LinkText;
+  outline: 2px solid var(--c-accent);
   outline-offset: 0.25rem;
 }
 
@@ -153,14 +161,14 @@ body {
 */
 
 a:any-link {
-  color: LinkText;
+  color: var(--c-accent);
   text-decoration: underline;
   text-decoration-thickness: 0.125em;
 }
 
 a:any-link:hover {
-  background-color: LinkText;
-  color: Canvas;
+  background-color: var(--c-accent);
+  color: var(--c-on-accent);
   text-decoration-line: none;
 }
 
@@ -203,7 +211,7 @@ img {
 
 img::before {
   content: "";
-  background-color: Highlight;
+  background-color: var(--c-surface);
   width: 100%;
   height: 100%;
   position: absolute;
@@ -250,7 +258,7 @@ iframe {
 
 :where(h2, h3, h4, h5, h6):target {
   background-color: var(--c-yellow);
-  color: MarkText;
+  color: var(--c-mark-fg);
 }
 
 /* Lists
@@ -315,6 +323,7 @@ small {
 
 mark {
   background-color: var(--c-yellow);
+  color: var(--c-mark-fg);
 }
 
 /* Abbreviation */
@@ -345,13 +354,13 @@ q {
 /* Keyboard input */
 
 kbd {
-  background: linear-gradient(0deg, Canvas 0%, ButtonFace 100%);
+  background-color: var(--c-surface);
   font-size: var(--f-size-small);
   font-family: var(--f-sans);
   font-weight: bold;
   padding: 0.2em 0.4em;
+  border: 1px solid var(--c-gray);
   border-radius: 0.5rem;
-  box-shadow: 1px 1px 1px 0px var(--c-gray);
 }
 
 /* Ruby annotation
@@ -424,7 +433,7 @@ caption {
 */
 
 :where(pre, code, samp, var) {
-  background-color: ButtonFace;
+  background-color: var(--c-surface);
 }
 
 :where(code, samp, var) {
@@ -457,7 +466,7 @@ pre code {
 */
 
 details {
-  background-color: ButtonFace;
+  background-color: var(--c-surface);
   padding: 2rem;
   margin: 1em 0;
   border-radius: 0.5rem;
@@ -472,7 +481,7 @@ details > *:last-child {
 }
 
 summary {
-  color: LinkText;
+  color: var(--c-accent);
   font-family: var(--f-heading);
   font-weight: bold;
   cursor: pointer;
@@ -537,7 +546,7 @@ thead {
 }
 
 tbody tr:nth-child(odd) {
-  background-color: ButtonFace;
+  background-color: var(--c-surface);
 }
 
 tfoot {
@@ -589,12 +598,12 @@ th {
   textarea,
   select
 ) {
-  color: CanvasText;
+  color: var(--c-fg);
   font-size: var(--f-size-small);
   display: block;
   width: 100%;
   padding: 0.75rem 1rem;
-  border: 2px solid LinkText;
+  border: 2px solid var(--c-accent);
 }
 
 /* Placeholder */
@@ -607,7 +616,7 @@ th {
 
 fieldset {
   padding: 2rem;
-  border: 2px solid LinkText;
+  border: 2px solid var(--c-accent);
   border-radius: 0.5rem;
   break-inside: avoid;
 }
@@ -656,7 +665,7 @@ label:has([type="checkbox" i][disabled], [type="radio" i][disabled]) {
   height: 1.25em;
   position: relative;
   margin: 0.2rem 0 0;
-  border: 2px solid LinkText;
+  border: 2px solid var(--c-accent);
   cursor: pointer;
 }
 
@@ -665,12 +674,12 @@ label:has([type="checkbox" i][disabled], [type="radio" i][disabled]) {
 }
 
 :where([type="checkbox" i], [type="radio" i]):checked {
-  background-color: LinkText;
+  background-color: var(--c-accent);
 }
 
 [type="checkbox" i]:checked::after {
   content: "\2713";
-  color: Canvas;
+  color: var(--c-on-accent);
   font-family: var(--f-form);
   font-weight: bold;
   line-height: 1;
@@ -713,7 +722,7 @@ label:has([type="checkbox" i][disabled], [type="radio" i][disabled]) {
 }
 
 ::-webkit-slider-runnable-track {
-  background-color: LinkText;
+  background-color: var(--c-accent);
   height: 4px;
   border-radius: 0.5rem;
 }
@@ -723,7 +732,7 @@ label:has([type="checkbox" i][disabled], [type="radio" i][disabled]) {
 }
 
 ::-moz-range-track {
-  background-color: LinkText;
+  background-color: var(--c-accent);
   height: 4px;
   border-radius: 0.5rem;
 }
@@ -735,11 +744,11 @@ label:has([type="checkbox" i][disabled], [type="radio" i][disabled]) {
 ::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  background-color: Canvas;
+  background-color: var(--c-bg);
   height: 2rem;
   width: 2rem;
   margin-block-start: calc(-1rem + 2px);
-  border: 2px solid LinkText;
+  border: 2px solid var(--c-accent);
   border-radius: 50%;
   cursor: ew-resize;
 }
@@ -749,17 +758,17 @@ label:has([type="checkbox" i][disabled], [type="radio" i][disabled]) {
 }
 
 [type="range" i]:focus::-webkit-slider-thumb {
-  outline: 2px solid LinkText;
+  outline: 2px solid var(--c-accent);
   outline-offset: 0.25rem;
 }
 
 ::-moz-range-thumb {
   appearance: none;
-  background-color: Canvas;
+  background-color: var(--c-bg);
   height: 2rem;
   width: 2rem;
   margin-block-start: calc(-1rem + 2px);
-  border: 2px solid LinkText;
+  border: 2px solid var(--c-accent);
   border-radius: 50%;
   cursor: ew-resize;
 }
@@ -769,14 +778,14 @@ label:has([type="checkbox" i][disabled], [type="radio" i][disabled]) {
 }
 
 [type="range" i]:focus::-moz-range-thumb {
-  outline: 2px solid LinkText;
+  outline: 2px solid var(--c-accent);
   outline-offset: 0.25rem;
 }
 
 /* Select */
 
 select {
-  background: Canvas var(--i-triangle) no-repeat calc(100% - 1rem) center /
+  background: var(--c-bg) var(--i-triangle) no-repeat calc(100% - 1rem) center /
     1.5rem;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -806,7 +815,7 @@ select[multiple] {
   display: inline-block;
   min-width: 5rem;
   padding: 0.2em 0.4em;
-  border: 2px solid LinkText;
+  border: 2px solid var(--c-accent);
   -webkit-user-select: text;
   user-select: text;
   cursor: pointer;
@@ -824,8 +833,8 @@ select[multiple] {
 
 @media screen {
   :where(button, [type="button" i], [type="submit" i], [type="reset" i]) {
-    background-color: LinkText;
-    color: Canvas;
+    background-color: var(--c-accent);
+    color: var(--c-on-accent);
   }
 
   :where(
@@ -856,21 +865,39 @@ label + :where(meter, progress) {
 }
 
 meter {
-  background: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--c-surface);
   display: block;
   margin-block-end: 1em;
   border: 2px solid var(--c-gray);
 }
 
 ::-webkit-meter-bar {
-  background: Canvas;
-  height: 3rem;
-  border: 2px solid var(--c-gray);
+  background: var(--c-surface);
+  height: 100%;
+  border: 0;
   border-radius: 0;
 }
 
+::-webkit-meter-optimum-value {
+  background: var(--c-accent);
+}
+
+::-webkit-meter-suboptimum-value {
+  background: var(--c-yellow);
+}
+
+::-webkit-meter-even-less-good-value {
+  background: var(--c-red);
+}
+
+::-moz-meter-bar {
+  background: var(--c-accent);
+}
+
 ::-webkit-progress-bar {
-  background-color: Canvas;
+  background-color: var(--c-bg);
 }
 
 ::-moz-progress-bar {
@@ -929,7 +956,7 @@ p[id]:has(+ [aria-invalid]) {
 */
 
 dialog[open] {
-  background-color: Canvas;
+  background-color: var(--c-bg);
   color: currentColor;
   display: block;
   max-width: var(--w-body, 100%);
@@ -955,6 +982,10 @@ dialog > *:last-child {
   margin-block-end: 0;
 }
 
+dialog > footer {
+  text-align: end;
+}
+
 /* Opinionated layout
 ========================================
 */
@@ -972,6 +1003,11 @@ dialog > *:last-child {
 
   body > footer {
     margin-block-start: 4rem;
+    font-size: 1.4rem;
+  }
+
+  footer p {
+    text-align: center;
   }
 }
 
@@ -1006,4 +1042,38 @@ a.muted {
 
 .tag::before {
   content: "#";
+}
+
+.outlined {
+  background: none;
+  color: inherit;
+  border: 2px solid currentColor;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 10ch 1fr;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.error {
+  color: var(--c-red);
+}
+
+.spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }

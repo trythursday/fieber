@@ -11,6 +11,20 @@ If you want to use fieber for your own purposes, please use the original directl
 and support the author! We do not promise public support for this, this is an
 internal fork for convenience.
 
+## Showcase
+
+Open [showcase.html](./showcase.html) in a browser to see every element the
+stylesheet styles. It covers light and dark mode; switch schemes in your
+browser's dev tools.
+
+Serve the directory if your browser blocks local files:
+
+```sh
+python3 -m http.server
+```
+
+Then open <http://localhost:8000/showcase.html>.
+
 ## License
 
 fieber.css is licensed under the [MIT License](https://opensource.org/licenses/MIT).
