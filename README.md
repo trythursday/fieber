@@ -14,7 +14,7 @@ internal fork for convenience.
 ## Showcase
 
 Open [the showcase](https://trythursday.github.io/fieber/) 
-(`./showcase.html` in this repo) in a browser to see every styled 
+(`./index.html` in this repo) in a browser to see every styled 
 element. It covers light and dark mode; switch schemes in your
 browser's dev tools.
 
