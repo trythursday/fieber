@@ -13,17 +13,10 @@ internal fork for convenience.
 
 ## Showcase
 
-Open [showcase.html](./showcase.html) in a browser to see every element the
-stylesheet styles. It covers light and dark mode; switch schemes in your
+Open [the showcase](https://trythursday.github.io/fieber/) 
+(`./showcase.html` in this repo) in a browser to see every styled 
+element. It covers light and dark mode; switch schemes in your
 browser's dev tools.
-
-Serve the directory if your browser blocks local files:
-
-```sh
-python3 -m http.server
-```
-
-Then open <http://localhost:8000/showcase.html>.
 
 ## License
 
