@@ -639,7 +639,7 @@ th {
 
 fieldset {
   padding: 2rem;
-  border: 2px solid var(--c-accent);
+  border: 2px solid var(--c-gray);
   border-radius: 0.5rem;
   break-inside: avoid;
 }
@@ -713,6 +713,25 @@ label:has([type="checkbox" i][disabled], [type="radio" i][disabled]) {
 }
 
 /* Color input */
+
+:where(
+  input:not(
+    [type="checkbox" i],
+    [type="radio" i],
+    [type="range" i],
+    [type="color" i],
+    [type="file" i],
+    [type="image" i],
+    [type="button" i],
+    [type="submit" i],
+    [type="reset" i]
+  ),
+  textarea,
+  select
+):focus {
+  border-color: var(--c-accent);
+  outline: none;
+}
 
 [type="color" i] {
   height: 4rem;
