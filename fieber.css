@@ -208,7 +208,7 @@ figure img {
 
 @media (min-aspect-ratio: 1/1) {
   figure img {
-    max-height: 90vh;
+    max-height: 80vh;
     width: auto;
   }
 }
